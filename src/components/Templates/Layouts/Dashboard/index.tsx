@@ -5,6 +5,7 @@ import { Container } from './styles';
 
 interface Props {
   section: string;
+  title: string;
 }
 
 const Dashboard: React.FC<Props> = props => {
@@ -13,7 +14,12 @@ const Dashboard: React.FC<Props> = props => {
       <aside>
         <DashboardSidebar section={props.section}/>
       </aside>
-      <main>{props.children}</main>
+      <main>
+        <header>
+          <h1>{props.title}</h1>
+        </header>
+        {props.children}
+        </main>
     </Container>
   );
 };
