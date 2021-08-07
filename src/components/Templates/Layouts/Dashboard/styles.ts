@@ -36,7 +36,17 @@ export const Container = styled.div`
         font-weight: 400;
       }
     }
+  }
 
+  @media screen and (max-width: 900px){
+    flex-direction: column;
 
+    >aside{
+      width: 100%;
+    }
+
+    > main{
+      margin-left: 0;
+    }
   }
 `;

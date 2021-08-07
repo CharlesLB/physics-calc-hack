@@ -4,3 +4,10 @@ interface OperatorsResult{
   product?: string;
   div?: string;
 }
+
+interface MediaResult{
+  media?: number;
+  populationDeviation?: number;
+  sampleDeviation?: number;
+  mediaDeviation?: number;
+}

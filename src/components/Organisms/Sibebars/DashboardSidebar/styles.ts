@@ -17,6 +17,10 @@ export const Container = styled.div`
     padding-left: 5px;
     padding-top: 60px;
   }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 interface ItemProps {
