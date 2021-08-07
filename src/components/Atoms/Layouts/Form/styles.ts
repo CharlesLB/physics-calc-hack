@@ -10,13 +10,13 @@ export const FormSection = styled.form`
   > footer {
     margin-top: 1rem;
     width: 100%;
-    >div{
+    > div {
       width: 100%;
     }
   }
 `;
 
-export const FormGroup = styled.form`
+export const FormGroup = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -30,4 +30,14 @@ export const FormGroup = styled.form`
       margin-right: 0;
     }
   }
+`;
+
+export const FormResult = styled.div`
+  border-radius: var(--border-radius);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #eee;
 `;
