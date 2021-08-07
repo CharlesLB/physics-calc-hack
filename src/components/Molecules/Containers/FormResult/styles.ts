@@ -1,0 +1,30 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  border-radius: var(--border-radius);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #eee;
+
+  > header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > h3 {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+
+  > main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+`;

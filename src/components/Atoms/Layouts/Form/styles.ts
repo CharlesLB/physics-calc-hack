@@ -32,12 +32,3 @@ export const FormGroup = styled.div`
   }
 `;
 
-export const FormResult = styled.div`
-  border-radius: var(--border-radius);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #eee;
-`;

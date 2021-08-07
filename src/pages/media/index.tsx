@@ -1,4 +1,5 @@
-import { FormGroup, FormResult, FormSection } from '@/components/Atoms/Layouts/Form/styles';
+import { FormGroup, FormSection } from '@/components/Atoms/Layouts/Form/styles';
+import FormResult from '@/components/Molecules/Containers/FormResult';
 import Dashboard from '@/components/Templates/Layouts/Dashboard';
 import {
   getMedia,
@@ -16,6 +17,7 @@ import { toast } from 'react-toastify';
 const Home: React.FC = () => {
   const [values, setValues] = useState<number[]>([]);
   const [results, setResults] = useState<MediaResult>(null);
+  const [onTyping, setOnTyping] = useState<boolean>(false);
 
   const changeValue = (value: number, index: number): void => {
     if (!value) {
@@ -80,12 +82,24 @@ const Home: React.FC = () => {
           onBlur={e => {
             changeValue(parseFloat(e.target.value), values.length);
             e.target.value = null;
+            setOnTyping(false);
           }}
+          onFocus={() => setOnTyping(true)}
           variant={inputTheme}
           margin="dense"
           type="number"
           label={`Valor ${values.length + 1}`}
         />
+
+        {onTyping && (
+          <TextField
+            variant={inputTheme}
+            margin="dense"
+            type="number"
+            label={`Valor ${values.length + 2}`}
+          />
+        )}
+
         <footer>
           <Button
             fullWidth
@@ -102,20 +116,18 @@ const Home: React.FC = () => {
         <FormResult>
           <FormGroup>
             <TextField
-              onClick={() => copy(results.media.toString()
-                .replace('.', ','))}
+              onClick={() => copy(results.media.toString().replace('.', ','))}
               disabled
-              value={results.media.toString()
-                .replace('.', ',')}
+              value={results.media.toString().replace('.', ',')}
               variant={inputTheme}
               margin="dense"
               label="Media"
             />
             <TextField
-              onClick={() => copy(results.populationDeviation.toString()
-                .replace('.', ','))}
-              value={results.populationDeviation.toString()
-                .replace('.', ',')}
+              onClick={() =>
+                copy(results.populationDeviation.toString().replace('.', ','))
+              }
+              value={results.populationDeviation.toString().replace('.', ',')}
               disabled
               variant={inputTheme}
               margin="dense"
@@ -124,21 +136,24 @@ const Home: React.FC = () => {
           </FormGroup>
           <FormGroup>
             <TextField
-              onClick={() => copy(results.sampleDeviation.toString()
-                .replace('.', ','))}
+              onClick={() =>
+                copy(results.sampleDeviation.toString().replace('.', ','))
+              }
               disabled
-              value={results?.sampleDeviation.toFixed(8).toString()
+              value={results?.sampleDeviation
+                .toFixed(8)
+                .toString()
                 .replace('.', ',')}
               variant={inputTheme}
               margin="dense"
               label="Desvio Padrão da Amostra (8 casas decimais)"
             />
             <TextField
-              onClick={() => copy(results.mediaDeviation.toString()
-                .replace('.', ','))}
+              onClick={() =>
+                copy(results.mediaDeviation.toString().replace('.', ','))
+              }
               disabled
-              value={results.mediaDeviation.toString()
-                .replace('.', ',')}
+              value={results.mediaDeviation.toString().replace('.', ',')}
               variant={inputTheme}
               margin="dense"
               label="Desvio padrão da Média"
