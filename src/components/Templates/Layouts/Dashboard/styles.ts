@@ -22,14 +22,21 @@ export const Container = styled.div`
     height: 100%;
     margin-left: 3rem;
 
-    > header{
+    > header {
       width: 100%;
 
-      > h1{
+      > h1 {
         font-size: 1.7rem;
         font-weight: 600;
         color: #333;
       }
+
+      > p {
+        font-size: 0.9rem;
+        font-weight: 400;
+      }
     }
+
+
   }
 `;

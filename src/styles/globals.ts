@@ -28,6 +28,7 @@ export default createGlobalStyle`
     font-size: 16px;
     --fonts: 'Poppins', sans-serif;
     --transition: 0.5s ease-in-out;
+    --border-radius: 10px;
 
     --color-primary: #4d5bf9;
     --color-primary-dark: #03045e;

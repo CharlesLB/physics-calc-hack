@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 300px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   height: 100%;
   background-color: var(--color-primary);
   position: sticky;
@@ -30,7 +30,7 @@ export const Item = styled.li<ItemProps>`
 
   ${props => props.active && `background-color: #fff;`}
 
-  border-radius: 10px 0 0 10px;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
 
   > a {
     position: relative;
@@ -82,7 +82,7 @@ export const Item = styled.li<ItemProps>`
       top: -10px;
 
       &::before {
-        border-radius: 0 0 10px 0;
+        border-radius: 0 0 var(--border-radius) 0;
       }
     }
 
@@ -90,7 +90,7 @@ export const Item = styled.li<ItemProps>`
       bottom: -10px;
 
       &::before {
-        border-radius: 0 10px 0 0;
+        border-radius: 0 var(--border-radius) 0 0;
       }
     }
   }
