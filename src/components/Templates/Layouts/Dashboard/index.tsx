@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify';
 
 import { Container } from './styles';
 import 'react-toastify/dist/ReactToastify.css';
+import { motion } from 'framer-motion';
+import { pageVariant } from 'constants/Framers/General';
 
 interface Props {
   section: string;
@@ -18,13 +20,18 @@ const Dashboard: React.FC<Props> = props => {
         <aside>
           <DashboardSidebar section={props.section} />
         </aside>
-        <main>
+
+        <motion.main
+          initial="pageInitial"
+          animate="pageAnimate"
+          variants={pageVariant}
+        >
           <header>
             <h1>{props.title}</h1>
             <p>{props.description}</p>
           </header>
           {props.children}
-        </main>
+        </motion.main>
       </Container>
       <ToastContainer />
     </>
