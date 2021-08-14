@@ -6,6 +6,7 @@ const Home: React.FC = () => {
     <Dashboard
       section="graphics"
       title="Operações e suas incertezas"
+      description="Coloque os dados para auxiliar a montagem dos gráficos"
     ></Dashboard>
   );
 };
