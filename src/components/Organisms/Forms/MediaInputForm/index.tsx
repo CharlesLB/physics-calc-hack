@@ -13,6 +13,7 @@ import { copy } from '@/utils/General';
 import { Button, TextField } from '@material-ui/core';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import FadeMotion from '@/components/Molecules/Motions/FadeMotion';
 
 const MediaInputForm: React.FC = () => {
   const [values, setValues] = useState<number[]>([]);
@@ -58,94 +59,94 @@ const MediaInputForm: React.FC = () => {
   };
 
   return (
-    <>
-      <FormSection>
-        {values.map((value, index) => (
-          <TextField
-            onChange={e => {
-              changeValue(parseFloat(e.target.value), index);
-            }}
-            type="number"
-            value={value}
-            variant={inputTheme}
-            margin="dense"
-            label={`Valor ${index + 1}`}
-          />
-        ))}
-
+    <FormSection>
+      {values.map((value, index) => (
         <TextField
-          onBlur={e => {
-            changeValue(parseFloat(e.target.value), values.length);
-            e.target.value = null;
+          onChange={e => {
+            changeValue(parseFloat(e.target.value), index);
           }}
+          type="number"
+          value={value}
           variant={inputTheme}
           margin="dense"
-          type="number"
-          label={`Valor ${values.length + 1}`}
+          label={`Valor ${index + 1}`}
         />
+      ))}
 
-        <footer>
-          <Button
-            fullWidth
-            onClick={() => submit()}
-            color="primary"
-            variant={buttonTheme}
-          >
-            Calcular
-          </Button>
-        </footer>
-      </FormSection>
+      <TextField
+        onBlur={e => {
+          changeValue(parseFloat(e.target.value), values.length);
+          e.target.value = null;
+        }}
+        variant={inputTheme}
+        margin="dense"
+        type="number"
+        label={`Valor ${values.length + 1}`}
+      />
+
+      <footer>
+        <Button
+          fullWidth
+          onClick={() => submit()}
+          color="primary"
+          variant={buttonTheme}
+        >
+          Calcular
+        </Button>
+      </footer>
 
       {results && (
-        <FormResult>
-          <FormGroup>
-            <TextField
-              onClick={() => copy(results.media.toString().replace('.', ','))}
-              disabled
-              value={results.media.toString().replace('.', ',')}
-              variant={inputTheme}
-              margin="dense"
-              label="Media"
-            />
-            <TextField
-              onClick={() =>
-                copy(results.populationDeviation.toString().replace('.', ','))
-              }
-              value={results.populationDeviation.toString().replace('.', ',')}
-              disabled
-              variant={inputTheme}
-              margin="dense"
-              label="Desvio padrão da População"
-            />
-          </FormGroup>
-          <FormGroup>
-            <TextField
-              onClick={() =>
-                copy(results.sampleDeviation.toString().replace('.', ','))
-              }
-              disabled
-              value={results?.sampleDeviation
-                .toFixed(8)
-                .toString()
-                .replace('.', ',')}
-              variant={inputTheme}
-              margin="dense"
-              label="Desvio Padrão da Amostra (8 casas decimais)"
-            />
-            <TextField
-              onClick={() =>
-                copy(results.mediaDeviation.toString().replace('.', ','))
-              }
-              disabled
-              value={results.mediaDeviation.toString().replace('.', ',')}
-              variant={inputTheme}
-              margin="dense"
-              label="Desvio padrão da Média"
-            />
-          </FormGroup>
-        </FormResult>
+        <FadeMotion>
+          <FormResult>
+            <FormGroup>
+              <TextField
+                onClick={() => copy(results.media.toString().replace('.', ','))}
+                disabled
+                value={results.media.toString().replace('.', ',')}
+                variant={inputTheme}
+                margin="dense"
+                label="Media"
+              />
+              <TextField
+                onClick={() =>
+                  copy(results.populationDeviation.toString().replace('.', ','))
+                }
+                value={results.populationDeviation.toString().replace('.', ',')}
+                disabled
+                variant={inputTheme}
+                margin="dense"
+                label="Desvio padrão da População"
+              />
+            </FormGroup>
+            <FormGroup>
+              <TextField
+                onClick={() =>
+                  copy(results.sampleDeviation.toString().replace('.', ','))
+                }
+                disabled
+                value={results?.sampleDeviation
+                  .toFixed(8)
+                  .toString()
+                  .replace('.', ',')}
+                variant={inputTheme}
+                margin="dense"
+                label="Desvio Padrão da Amostra (8 casas decimais)"
+              />
+              <TextField
+                onClick={() =>
+                  copy(results.mediaDeviation.toString().replace('.', ','))
+                }
+                disabled
+                value={results.mediaDeviation.toString().replace('.', ',')}
+                variant={inputTheme}
+                margin="dense"
+                label="Desvio padrão da Média"
+              />
+            </FormGroup>
+          </FormResult>
+        </FadeMotion>
       )}
-    </>
+    </FormSection>
   );
 };
 

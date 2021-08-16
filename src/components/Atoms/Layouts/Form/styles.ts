@@ -24,6 +24,10 @@ export const FormGroup = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
+  &:first-of-type{
+    margin-top: 0;
+  }
+
   > div {
     width: 100% !important;
     margin-right: 1rem;

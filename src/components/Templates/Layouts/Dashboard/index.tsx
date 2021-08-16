@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { Container } from './styles';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
-import { pageVariant } from 'constants/Framers/General';
+import { pageVariant } from '@/constants/Framers/General';
 
 interface Props {
   section: string;

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  FormGroup,
-  FormSection
-} from '@/components/Atoms/Layouts/Form/styles';
+import { FormGroup, FormSection } from '@/components/Atoms/Layouts/Form/styles';
 
 import { Button, TextField } from '@material-ui/core';
 import { useState } from 'react';
@@ -11,6 +8,7 @@ import { getResult } from '@/helpers/Operations';
 import { toast } from 'react-toastify';
 import { copy } from '@/utils/General';
 import FormResult from '@/components/Molecules/Containers/FormResult';
+import FadeMotion from '@/components/Molecules/Motions/FadeMotion';
 
 const OperatorsForm: React.FC = () => {
   const [x, setX] = useState<number | null>(null);
@@ -51,42 +49,45 @@ const OperatorsForm: React.FC = () => {
   return (
     <>
       <FormSection>
-        <FormGroup>
-          <TextField
-            value={x}
-            onChange={e => setX(parseFloat(e.target.value))}
-            variant={inputTheme}
-            margin="dense"
-            type="number"
-            label="Valor de X"
-          />
-          <TextField
-            value={dx}
-            onChange={e => setDx(parseFloat(e.target.value))}
-            variant={inputTheme}
-            margin="dense"
-            type="number"
-            label="Valor de Dx"
-          />
-        </FormGroup>
-        <FormGroup>
-          <TextField
-            value={y}
-            onChange={e => setY(parseFloat(e.target.value))}
-            variant={inputTheme}
-            margin="dense"
-            type="number"
-            label="Valor de Y"
-          />
-          <TextField
-            value={dy}
-            onChange={e => setDy(parseFloat(e.target.value))}
-            variant={inputTheme}
-            margin="dense"
-            type="number"
-            label="Valor de Dy"
-          />
-        </FormGroup>
+        <main>
+          <FormGroup>
+            <TextField
+              value={x}
+              onChange={e => setX(parseFloat(e.target.value))}
+              variant={inputTheme}
+              margin="dense"
+              type="number"
+              label="Valor de X"
+            />
+            <TextField
+              value={dx}
+              onChange={e => setDx(parseFloat(e.target.value))}
+              variant={inputTheme}
+              margin="dense"
+              type="number"
+              label="Valor de Dx"
+            />
+          </FormGroup>
+          <FormGroup>
+            <TextField
+              value={y}
+              onChange={e => setY(parseFloat(e.target.value))}
+              variant={inputTheme}
+              margin="dense"
+              type="number"
+              label="Valor de Y"
+            />
+            <TextField
+              value={dy}
+              onChange={e => setDy(parseFloat(e.target.value))}
+              variant={inputTheme}
+              margin="dense"
+              type="number"
+              label="Valor de Dy"
+            />
+          </FormGroup>
+        </main>
+
         <footer>
           <Button
             fullWidth
@@ -97,48 +98,50 @@ const OperatorsForm: React.FC = () => {
             Calcular
           </Button>
         </footer>
+
+        {results && (
+          <FadeMotion>
+            <FormResult>
+              <FormGroup>
+                <TextField
+                  onClick={() => copy(results.sum)}
+                  disabled
+                  value={results?.sum}
+                  variant={inputTheme}
+                  margin="dense"
+                  label="Resultado da soma"
+                />
+                <TextField
+                  onClick={() => copy(results.sub)}
+                  value={results?.sub}
+                  disabled
+                  variant={inputTheme}
+                  margin="dense"
+                  label="Resultado da Subtração"
+                />
+              </FormGroup>
+              <FormGroup>
+                <TextField
+                  onClick={() => copy(results.product)}
+                  disabled
+                  value={results?.product}
+                  variant={inputTheme}
+                  margin="dense"
+                  label="Resultado do Produto"
+                />
+                <TextField
+                  onClick={() => copy(results.div)}
+                  disabled
+                  value={results?.div}
+                  variant={inputTheme}
+                  margin="dense"
+                  label="Resultado da Divisão"
+                />
+              </FormGroup>
+            </FormResult>
+          </FadeMotion>
+        )}
       </FormSection>
-      
-      {results && (
-        <FormResult>
-          <FormGroup>
-            <TextField
-              onClick={() => copy(results.sum)}
-              disabled
-              value={results?.sum}
-              variant={inputTheme}
-              margin="dense"
-              label="Resultado da soma"
-            />
-            <TextField
-              onClick={() => copy(results.sub)}
-              value={results?.sub}
-              disabled
-              variant={inputTheme}
-              margin="dense"
-              label="Resultado da Subtração"
-            />
-          </FormGroup>
-          <FormGroup>
-            <TextField
-              onClick={() => copy(results.product)}
-              disabled
-              value={results?.product}
-              variant={inputTheme}
-              margin="dense"
-              label="Resultado do Produto"
-            />
-            <TextField
-              onClick={() => copy(results.div)}
-              disabled
-              value={results?.div}
-              variant={inputTheme}
-              margin="dense"
-              label="Resultado da Divisão"
-            />
-          </FormGroup>
-        </FormResult>
-      )}
     </>
   );
 };

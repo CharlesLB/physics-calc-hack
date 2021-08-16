@@ -1,7 +1,8 @@
 import React from 'react';
 import Dashboard from '@/components/Templates/Layouts/Dashboard';
 import MediaInputForm from '@/components/Organisms/Forms/MediaInputForm';
-
+import { motion } from 'framer-motion';
+import { pageVariant } from '@/constants/Framers/General';
 import { useState } from 'react';
 import Navigator from '@/components/Organisms/Navs/Navigator';
 import { MdInput } from 'react-icons/md';
@@ -23,16 +24,19 @@ const Media: React.FC = () => {
           {
             label: 'Via Inputs',
             value: 'inputs',
-            icon: <MdInput size='24' />
+            icon: <MdInput size="24" />
           },
           {
             label: 'Via texto',
             value: 'textarea',
-            icon: <BsCardText size='24'/>
+            icon: <BsCardText size="24" />
           }
         ]}
       />
-      <MediaInputForm />
+
+      <motion.main>
+        < MediaInputForm/>
+      </motion.main>
     </Dashboard>
   );
 };
