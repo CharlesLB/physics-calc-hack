@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import {  BottomNavigationAction } from '@material-ui/core';
 import { Container } from './styles';
 
 interface Props {

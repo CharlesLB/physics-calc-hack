@@ -22,6 +22,10 @@ export const Container = styled.div`
     height: 100%;
     margin-left: 3rem;
 
+    > * {
+      margin-top: 1rem;
+    }
+
     > header {
       width: 100%;
 
@@ -38,14 +42,14 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (max-width: 900px){
+  @media screen and (max-width: 900px) {
     flex-direction: column;
 
-    >aside{
+    > aside {
       width: 100%;
     }
 
-    > main{
+    > main {
       margin-left: 0;
     }
   }

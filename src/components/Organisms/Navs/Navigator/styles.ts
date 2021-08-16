@@ -1,14 +1,22 @@
 import styled from 'styled-components';
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import { BottomNavigation } from '@material-ui/core';
 
 export const Container = styled(BottomNavigation)`
-  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: #eee !important;
   border-radius: var(--border-radius);
-  
+  height: 5rem !important;
+
   .MuiBottomNavigation-root {
     width: 100%;
-    background-color: #eee;
-    /* display: flex;
-    justify-content: space-between; */
+    border-radius: var(--border-radius);
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  .MuiBottomNavigationAction-root {
+    width: 100%;
+    max-width: 100%;
   }
 `;

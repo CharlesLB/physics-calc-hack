@@ -5,10 +5,12 @@ export const FormSection = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+
+  > * {
+    margin-top: 1rem;
+  }
 
   > footer {
-    margin-top: 1rem;
     width: 100%;
     > div {
       width: 100%;
@@ -31,4 +33,3 @@ export const FormGroup = styled.div`
     }
   }
 `;
-

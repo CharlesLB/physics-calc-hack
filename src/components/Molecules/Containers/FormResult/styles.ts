@@ -5,7 +5,6 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
   padding: 1rem;
   background-color: #eee;
 
@@ -25,6 +24,5 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
   }
 `;
